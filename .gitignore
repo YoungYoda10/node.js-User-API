@@ -75,3 +75,6 @@ pnpm-lock.yaml
 # Miscellaneous
 *.bak
 *.orig
+
+# Database
+./users.db
