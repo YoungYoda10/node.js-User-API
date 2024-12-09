@@ -19,10 +19,21 @@ const db = new sqlite3.Database('./users.db', (err) => {
 // Create the "users" table if it doesn't exist
 db.run(`CREATE TABLE IF NOT EXISTS users
         (
-            id INTEGER PRIMARY KEY AUTOINCREMENT,
-            name TEXT NOT NULL,
+            id    INTEGER PRIMARY KEY AUTOINCREMENT,
+            name  TEXT NOT NULL,
             email TEXT NOT NULL UNIQUE
         )`);
+
+// Default info
+app.get('/', (req, res) => {
+    db.all('SELECT * FROM users', [], (err) => {
+        if (err) {
+            res.status(500).json({error: err.message});
+        } else {
+            res.json({info: 'Welcome to node.js user api'});
+        }
+    });
+});
 
 // Get all users
 app.get('/api/users', (req, res) => {
