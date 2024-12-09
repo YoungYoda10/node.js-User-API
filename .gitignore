@@ -77,4 +77,4 @@ pnpm-lock.yaml
 *.orig
 
 # Database
-./users.db
+users.db
