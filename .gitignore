@@ -78,3 +78,8 @@ pnpm-lock.yaml
 
 # Database
 users.db
+
+# SSH files
+cert.csr
+cert.pem
+key.pem
